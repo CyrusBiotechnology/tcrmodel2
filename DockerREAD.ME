@@ -1,0 +1,13 @@
+This docker file has not completed development but is enough to get the protocol working.
+You will need to get the relevant databases and put them in a folder labeled data/databases in this directory.
+Launch the docker image in the interactive mode with the command
+docker run -it --gpus all -v `pwd`:/tcrmodel2/ --entrypoint=/bin/bash tcrmodel2
+cd into the /tcrmodel2/ directory and run your command. 
+
+Current issues I was working on resolving when this got put on hold:
+
+Package the tcrmodel2 software into the docker image directly so you don't need to mount it from the file system. 
+(this was currently running into issues with the protocol not correctly finding database when I tried to package everything except the database into the image and then mountain the database separately).
+
+The image is not properly using the GPU. It seems to be missing some sort of jaxlib library to enable GPU usage and I haven't figured out how to resolve it yet.
+ 
